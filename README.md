@@ -1,0 +1,2 @@
+# project-four_IMDB-clone https://project-four-imdb-clone.herokuapp.com/
+The fourth weekly project completed during my Full Stack Web Development program at BrainStation. PLEASE NOTE: The state of this code is untouched from when I created it during the bootcamp. The technologies used for this project were HTML, CSS, JavaScript, Bootstrap, EJS, an external movie API and Node+Express. The app mimics IMDB such that it displays currently playing movies and users can search for any movie. Clicking on a movie displays its details.

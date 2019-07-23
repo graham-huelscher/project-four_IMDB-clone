@@ -34,11 +34,10 @@ function movieDatabaseUrl(title) {
 }
 
 app.get('/', (req, res) => {
-    // let url = getMovieDatabaseURL()
-    // getMovies(url, (data) => {
-    //     res.render('index', data)
-    // })
-    res.json("TEST");
+    let url = getMovieDatabaseURL()
+    getMovies(url, (data) => {
+        res.render('index', data)
+    })
 })
 
 function getMovieDatabaseURL() {

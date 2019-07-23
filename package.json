@@ -1,0 +1,22 @@
+{
+  "name": "movie_app",
+  "version": "1.0.0",
+  "description": "New IMDb",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/graham-huelscher"
+  },
+  "author": "Graham Huelscher",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "request": "^2.87.0"
+  }
+}

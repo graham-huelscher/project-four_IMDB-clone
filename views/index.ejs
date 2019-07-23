@@ -1,0 +1,33 @@
+<% include partials/header %>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Movies now playing</h1>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <% movies.forEach((movie)=>{ %>
+                <% let identifier = movie.title.toLowerCase().replace(/[^\w\s]/gi,"").replace(/\s/g, "-")%>
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="card border-dark mb-3">
+                            <a href="/movie-page/<%=identifier%>">
+                                <h3 class="card-header">
+                                    <%= movie.title %>
+                                </h3>
+                            </a>
+                            <a href="/movie-page/<%= identifier %>">
+                                <img class="card-img-top" src="http://image.tmdb.org/t/p/w500<%=movie.poster_path %>" alt="Movie Poster">
+                            </a>
+                            <div class="card-body">
+                                <h5>Summary</h5>
+                                <p class="card-text">
+                                    <%= movie.overview.substring(0, min)+"..."%>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+        </div>
+    </div>
+    <% include partials/footer %>

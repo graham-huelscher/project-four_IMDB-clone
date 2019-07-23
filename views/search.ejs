@@ -1,0 +1,41 @@
+<% include partials/header %>
+    <div class="container margin">
+        <div class="row margin">
+            <div class="col-md-2">
+                <form class="form-inline my-2 my-lg-0" method="GET" action="/" autocomplete="off">
+                    <button class="round-corners btn btn-outline-primary my-2 my-sm-0" type="submit">Back to main page</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <h1>Search results</h1>
+        </div>
+        <div class="row">
+            <ul class="list-unstyled">
+
+                <% movies.forEach((movie) => { %>
+                    <% let identifier = movie.title.toLowerCase().replace(/[^\w\s]/gi,"").replace(/\s/g, "-")%>
+
+                        <li class="media">
+                            <a class="shrink-anchor" href="/movie-page/<%= identifier %>">
+                                <% if(movie.poster_path) { %>
+                                    <img class="round-corners-leftside mr-3" src="http://image.tmdb.org/t/p/w500<%=movie.poster_path %>" alt="Movie Poster">
+                                    <% } else { %>
+                                        <img class="round-corners-leftside mr-3" src="/no-poster.jpg" alt="Movie Poster">
+                                        <% } %>
+                            </a>
+                            <div class="media-body">
+                                <h4>
+                                    <a class="<%= identifier %>" href="/movie-page/<%=identifier%>">
+                                        <%= movie.title %>
+                                    </a>
+                                </h4>
+                                <%= movie.overview %>
+                            </div>
+                        </li>
+                        <% }) %>
+            </ul>
+        </div>
+    </div>
+
+    <% include partials/footer %>

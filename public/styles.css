@@ -1,0 +1,62 @@
+.card {
+    margin: 20px 0px;
+    color: black;
+}
+
+.round-corners {
+    border-radius: 10px !important;
+}
+
+h1{
+    margin:auto;
+}
+.margin {
+    margin: 2.5% 0%;
+}
+
+.table-dark th{
+    border-right: solid black 1px;
+}
+
+.no-border {
+    border-color: transparent black transparent transparent !important;
+}
+
+.shrink-padding {
+    padding: 10px auto;
+}
+
+.border-dark {
+    border-radius: 10px !important ;
+}
+
+.shrink-anchor{
+    width:120px;
+    height: auto;
+    display:inline-block;
+}
+
+.mr-3{
+    width: 100%;
+    height: auto;
+}
+
+.media{
+    margin: 25px;
+    border: solid black 2px;
+    border-radius: 10px;
+}
+
+.media-body{
+    margin-left: 20px;
+    color: black;
+}
+
+.round-corners-leftside{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+h4 {
+    margin: 15px 0px !important;
+}

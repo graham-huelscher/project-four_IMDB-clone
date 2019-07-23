@@ -1,0 +1,95 @@
+<% include partials/header %>
+    <div class="container">
+        <div class="row margin">
+            <div class="col-md-2">
+                <form class="form-inline my-2 my-lg-0" method="GET" action="/" autocomplete="off">
+                    <button class="round-corners btn btn-outline-primary my-2 my-sm-0" type="submit">Back to main page</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <% if(poster_path) { %>
+                        <img class="round-corners-leftside mr-3" src="http://image.tmdb.org/t/p/w500<%=poster_path %>" alt="Movie Poster" style="border:solid black 1px;border-radius:10px;">
+                        <% } else { %>
+                            <img class="round-corners-leftside mr-3" src="/no-poster.jpg" alt="Movie Poster" style="border:solid black 1px;border-radius:10px;">
+                            <% } %>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <table class="table table-responsive" style="border:solid black 1px;border-radius:10px;">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="border-right:solid black 1px;">Stat</th>
+                            <th scope="col" colspan="2">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-dark">
+                            <th scope="row">Title</th>
+                            <td colspan="2">
+                                <%=title%>
+                            </td>
+                        </tr>
+                        <tr class="table-dark">
+                            <th scope="row">Overview</th>
+                            <td colspan="2">
+                                <%=overview%>
+                            </td>
+                        </tr>
+                        <% if(budget != 0) { %>
+                            <tr class="table-dark">
+                                <th scope="row">Budget</th>
+                                <td colspan="2">
+                                    <%=`$${budget.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}`%>
+                                </td>
+                            </tr>
+                            <% } %>
+                                <% if(revenue != 0) { %>
+                                    <tr class="table-dark">
+                                        <th scope="row">Revenue</th>
+                                        <td colspan="2">
+                                            <%=`$${revenue.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}`%>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                        <tr class="table-dark">
+                                            <th scope="row">Release Date</th>
+                                            <td colspan="2">
+                                                <%=release_date%>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-dark">
+                                            <th scope="row">Runtime</th>
+                                            <td colspan="2">
+                                                <%=`${runtime} minutes`%>
+                                            </td>
+                                        </tr>
+                                        <tr class="table-dark">
+                                            <th scope="row">Cast</th>
+                                            <td style="border-bottom: solid black 1px">
+                                                ACTOR
+                                            </td>
+                                            <td style="border-left: solid black 1px;border-bottom: solid black 1px">
+                                                ROLE
+                                            </td>
+                                        </tr>
+                                        <% credits.cast.forEach((actor) => {%>
+                                            <% if(actor.character != "" && actor.profile_path && !actor.character.includes('uncredited')){ %>
+                                            <tr class="table-dark no-border">
+                                                <th class="no-border" scope="row"></th>
+                                                <td style="padding: 10px 24px 0px;">
+                                                    <%=actor.name%>
+                                                </td>
+                                                <td style="padding: 10px 24px 0px;border-top: solid black 1px;border-left: solid black 1px;border-bottom: solid black 1px;">
+                                                    <%=actor.character%>
+                                                </td>
+                                            </tr> <% } %>
+                                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <% include partials/footer %>

@@ -3,7 +3,8 @@ const app = express()
 const request = require('request')
 const cheerio = require('cheerio')
 const logger = require('./middleware/logger')
-const port = process.argv[2] || 8080
+const port = process.env.PORT || 5000
+
 
 let currentPageOfMovies = []
 const serverLog = []
@@ -33,10 +34,11 @@ function movieDatabaseUrl(title) {
 }
 
 app.get('/', (req, res) => {
-    let url = getMovieDatabaseURL()
-    getMovies(url, (data) => {
-        res.render('index', data)
-    })
+    // let url = getMovieDatabaseURL()
+    // getMovies(url, (data) => {
+    //     res.render('index', data)
+    // })
+    res.json("TEST");
 })
 
 function getMovieDatabaseURL() {
@@ -82,7 +84,7 @@ function replaceCurrentPOM(movies) {
     movies.forEach((movie, index) => {
         request(detailedMovieUrl(movie.id), (error, response, data) => {
             if (!error && response.statusCode === 200) {
-                let cleanTitle = movie.title.toLowerCase().replace(/[^\w\s]/gi, "").replace(/\s/g, "-")
+                //let cleanTitle = movie.title.toLowerCase().replace(/[^\w\s]/gi, "").replace(/\s/g, "-")
                 currentPageOfMovies[index] = JSON.parse(data)
             }
         })
